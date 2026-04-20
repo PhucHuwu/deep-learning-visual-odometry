@@ -3,3 +3,4 @@
 	url = https://github.com/nianticlabs/monodepth2.git
 [submodule "modules/CEN"]
 	path = modules/CEN
+	url = https://github.com/yikaiw/CEN.git
