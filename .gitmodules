@@ -1,3 +1,5 @@
 [submodule "modules/monodepth2"]
 	path = modules/monodepth2
 	url = https://github.com/nianticlabs/monodepth2.git
+[submodule "modules/CEN"]
+	path = modules/CEN
