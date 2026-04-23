@@ -11,3 +11,4 @@ Monocular visual odometry with RGB and predicted-disparity fusion.
 
 Consecutive monocular RGB images provide the input.
 Monodepth2 predicts disparity from RGB; this is not independent depth-sensor input.
+Relative motion predictions are accumulated into a camera trajectory.
