@@ -17,3 +17,7 @@ The PoseNet variants are early, middle, late, and multi-layer fusion.
 ## Pipeline
 
 Images are resized to 192 by 640, converted to tensors, and passed to the depth encoder and decoder. Consecutive RGB and repeated disparity tensors form the two PoseNet inputs. Predicted motion is converted into an inverted relative transform and accumulated.
+
+## Structure
+
+`models/` contains fusion architectures; `libs/` contains geometry helpers; `configs/` contains inference settings; `run_odometry.py` runs sequence inference.
