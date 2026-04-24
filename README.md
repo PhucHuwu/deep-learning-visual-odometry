@@ -21,3 +21,7 @@ Images are resized to 192 by 640, converted to tensors, and passed to the depth 
 ## Structure
 
 `models/` contains fusion architectures; `libs/` contains geometry helpers; `configs/` contains inference settings; `run_odometry.py` runs sequence inference.
+
+## Environment
+
+The requirements pin PyTorch 1.7.1 with CUDA 10.1 and torchvision 0.8.2. Use a Python version supported by that legacy stack. The inference script requires CUDA.
