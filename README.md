@@ -29,3 +29,5 @@ The requirements pin PyTorch 1.7.1 with CUDA 10.1 and torchvision 0.8.2. Use a P
 ```bash
 python -m pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 ```
+
+Pillow and tqdm are also required. The legacy resize API needs Pillow before version 10. These installation instructions are not a verified environment.
