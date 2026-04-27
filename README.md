@@ -31,3 +31,5 @@ python -m pip install -r requirements.txt -f https://download.pytorch.org/whl/to
 ```
 
 Pillow and tqdm are also required. The legacy resize API needs Pillow before version 10. These installation instructions are not a verified environment.
+
+Upstream dependencies are Git submodules. Initialize them with `git submodule update --init --recursive`.
