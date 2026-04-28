@@ -37,3 +37,5 @@ Upstream dependencies are Git submodules. Initialize them with `git submodule up
 ## Data
 
 The default sequence is `data/dataset/sequences/09/image_2/`, containing ordered RGB images. Dataset files are not included.
+
+The checkpoint directory must contain `encoder.pth`, `depth.pth`, and an architecture-compatible `pose.pth`. Weights are not included.
