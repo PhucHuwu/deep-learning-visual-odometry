@@ -45,3 +45,5 @@ Select the input path, resize dimensions, model path, fusion type, and output di
 ```bash
 python run_odometry.py --config configs/run_odometry.yaml
 ```
+
+The output has one pose per line, each containing 12 space-separated values from the upper 3 by 4 matrix block. The first pose is identity.
