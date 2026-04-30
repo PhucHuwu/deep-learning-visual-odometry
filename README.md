@@ -49,3 +49,7 @@ python run_odometry.py --config configs/run_odometry.yaml
 The output has one pose per line, each containing 12 space-separated values from the upper 3 by 4 matrix block. The first pose is identity.
 
 The [KITTI odometry benchmark](https://www.cvlibs.net/datasets/kitti/eval_odometry.php) documents trajectory evaluation. No evaluation results are claimed here.
+
+## Limitations
+
+The output-directory helper references `os.makedirs` without calling it. Pose outputs are named axis-angle but interpreted as Euler angles. Depth inference still records gradients. The linear layers assume the default input dimensions. The `save_depth` option is unused.
