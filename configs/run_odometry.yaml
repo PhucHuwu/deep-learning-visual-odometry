@@ -2,3 +2,5 @@ data:
   path: 'data/dataset/sequences/09'  # path to dataset for evaluation
   height: 192
   width: 640
+model:
+  path: 'data/models/RGB+Depth_multi_layer'  # path to models for evaluation
