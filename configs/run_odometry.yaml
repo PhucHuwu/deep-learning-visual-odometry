@@ -7,3 +7,4 @@ model:
   type: 'multi_layer'
 output:
   path: 'data/outputs'  # path for saving outputs
+  save_depth: False
