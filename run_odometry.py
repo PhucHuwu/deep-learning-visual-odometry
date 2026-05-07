@@ -94,7 +94,7 @@ def save_traj(file_path: str, pose_list: list) -> None:
 
 def main():
     parser = argparse.ArgumentParser()
-    None
+    parser.add_argument('-c', '--config', type=Path, default='configs/run_odometry.yaml')
     None
 
     with open(args.config, 'r') as f:
