@@ -98,7 +98,7 @@ def main():
     args = parser.parse_args()
 
     with open(args.config, 'r') as f:
-        None
+        config_dict = yaml.load(f, yaml.FullLoader)
         None
 
     odom_dataset = KIITIOdomDataset(config_dict)
