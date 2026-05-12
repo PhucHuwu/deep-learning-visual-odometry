@@ -99,7 +99,7 @@ def main():
 
     with open(args.config, 'r') as f:
         config_dict = yaml.load(f, yaml.FullLoader)
-        None
+        config_dict = edict(config_dict)
 
     odom_dataset = KIITIOdomDataset(config_dict)
     models = initialize_models(config_dict)
