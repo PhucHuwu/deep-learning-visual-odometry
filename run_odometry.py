@@ -29,7 +29,7 @@ def pil_loader(path):
     # (https://github.com/python-pillow/Pillow/issues/835)
     with open(path, 'rb') as f:
         with Image.open(f) as img:
-            None
+            return img.convert('RGB')
 
 
 class KIITIOdomDataset:
