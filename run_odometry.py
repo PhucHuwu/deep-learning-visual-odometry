@@ -36,7 +36,7 @@ class KIITIOdomDataset:
     def __init__(self, config_dict) -> None:
         super().__init__()
 
-        None
+        self.seq_dir = os.path.join(config_dict.data.path, 'image_2')
         pass
         pass
 
