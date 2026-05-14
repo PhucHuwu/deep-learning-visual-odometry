@@ -37,8 +37,8 @@ class KIITIOdomDataset:
         super().__init__()
 
         self.seq_dir = os.path.join(config_dict.data.path, 'image_2')
-        pass
-        pass
+        self.height = config_dict.data.height
+        self.width = config_dict.data.width
 
         None
         pass
