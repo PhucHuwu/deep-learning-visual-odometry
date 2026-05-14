@@ -40,7 +40,7 @@ class KIITIOdomDataset:
         self.height = config_dict.data.height
         self.width = config_dict.data.width
 
-        None
+        self.filename_list = sorted(os.listdir(self.seq_dir))
         pass
         None
         None
