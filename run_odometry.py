@@ -42,7 +42,7 @@ class KIITIOdomDataset:
 
         self.filename_list = sorted(os.listdir(self.seq_dir))
         self.loader = pil_loader
-        None
+        self.resize = transforms.Resize((self.height, self.width), interpolation=Image.ANTIALIAS)
         None
 
     def __len__(self):
