@@ -46,7 +46,7 @@ class KIITIOdomDataset:
         self.to_tensor = transforms.ToTensor()
 
     def __len__(self):
-        None
+        return len(self.filename_list)
 
     def preprocess(self, rgb_image):
         None
