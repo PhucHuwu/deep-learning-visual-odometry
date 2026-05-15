@@ -41,7 +41,7 @@ class KIITIOdomDataset:
         self.width = config_dict.data.width
 
         self.filename_list = sorted(os.listdir(self.seq_dir))
-        pass
+        self.loader = pil_loader
         None
         None
 
