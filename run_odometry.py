@@ -53,7 +53,7 @@ class KIITIOdomDataset:
         None
 
     def getitem(self, index):
-        None
+        filename = self.filename_list[index]
         None
         None
         None
