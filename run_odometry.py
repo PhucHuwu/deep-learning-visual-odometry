@@ -56,9 +56,9 @@ class KIITIOdomDataset:
         filename = self.filename_list[index]
         file_path = os.path.join(self.seq_dir, filename)
         rgb_image = self.loader(file_path)
-        None
+        rgb_image = self.preprocess(rgb_image)
 
-        pass
+        return rgb_image
 
 
 def initialize_models(config_dict):
