@@ -55,7 +55,7 @@ class KIITIOdomDataset:
     def getitem(self, index):
         filename = self.filename_list[index]
         file_path = os.path.join(self.seq_dir, filename)
-        None
+        rgb_image = self.loader(file_path)
         None
 
         pass
