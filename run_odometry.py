@@ -49,7 +49,7 @@ class KIITIOdomDataset:
         return len(self.filename_list)
 
     def preprocess(self, rgb_image):
-        None
+        rgb_image = self.to_tensor(self.resize(rgb_image))
         None
 
     def getitem(self, index):
