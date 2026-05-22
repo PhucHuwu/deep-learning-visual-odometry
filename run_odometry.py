@@ -50,7 +50,7 @@ class KIITIOdomDataset:
 
     def preprocess(self, rgb_image):
         rgb_image = self.to_tensor(self.resize(rgb_image))
-        None
+        return rgb_image[None, ...].cuda()
 
     def getitem(self, index):
         filename = self.filename_list[index]
