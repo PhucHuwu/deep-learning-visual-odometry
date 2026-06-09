@@ -20,7 +20,7 @@ class BasicBlock(nn.Module):
     def __init__(self, inplanes, planes, stride=1, downsample=None):
         super(BasicBlock, self).__init__()
         self.conv1 = conv3x3(inplanes, planes, stride)
-        None
+        self.bn1 = BatchNorm2d(planes)
         None
         None
         None
