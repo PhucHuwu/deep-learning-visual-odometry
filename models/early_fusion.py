@@ -21,7 +21,7 @@ class BasicBlock(nn.Module):
         super(BasicBlock, self).__init__()
         self.conv1 = conv3x3(inplanes, planes, stride)
         self.bn1 = BatchNorm2d(planes)
-        None
+        self.relu = nn.ReLU(inplace=True)
         None
         None
 
