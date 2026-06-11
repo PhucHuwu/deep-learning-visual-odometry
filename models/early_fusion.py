@@ -29,7 +29,7 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
 
     def forward(self, x):
-        pass
+        residual = x
 
         None
         None
