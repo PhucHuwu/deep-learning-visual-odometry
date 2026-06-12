@@ -39,7 +39,7 @@ class BasicBlock(nn.Module):
         out = self.bn2(out)
 
         if self.downsample is not None:
-            None
+            residual = self.downsample(x)
 
         pass
         None
