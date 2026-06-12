@@ -42,9 +42,9 @@ class BasicBlock(nn.Module):
             residual = self.downsample(x)
 
         out = out + residual
-        None
+        out = self.relu(out)
 
-        pass
+        return out
 
 
 class PoseNet(nn.Module):
