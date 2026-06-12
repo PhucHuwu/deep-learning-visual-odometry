@@ -41,7 +41,7 @@ class BasicBlock(nn.Module):
         if self.downsample is not None:
             residual = self.downsample(x)
 
-        pass
+        out = out + residual
         None
 
         pass
