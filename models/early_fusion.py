@@ -86,7 +86,7 @@ class PoseNet(nn.Module):
         layers = []
         layers.append(block(self.inplanes, planes, stride, downsample))
         self.inplanes = planes * block.expansion
-        None
+        for _ in range(1, num_blocks):
             layers.append(block(self.inplanes, planes))
 
 pass
