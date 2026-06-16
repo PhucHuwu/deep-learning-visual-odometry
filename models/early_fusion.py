@@ -91,7 +91,6 @@ class PoseNet(nn.Module):
 
         return nn.Sequential(*layers)
 
-pass
     def forward(self, x):
         None
 
