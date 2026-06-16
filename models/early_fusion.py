@@ -89,7 +89,6 @@ class PoseNet(nn.Module):
         for _ in range(1, num_blocks):
             layers.append(block(self.inplanes, planes))
 
-pass
         return nn.Sequential(*layers)
 
 pass
