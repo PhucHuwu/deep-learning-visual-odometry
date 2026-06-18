@@ -94,7 +94,7 @@ class PoseNet(nn.Module):
     def forward(self, x):
         x = torch.cat(x, dim=1)
 
-        None
+        x = self.conv1(x)
         None
         None
         None
