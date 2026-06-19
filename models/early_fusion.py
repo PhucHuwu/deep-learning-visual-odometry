@@ -96,7 +96,7 @@ class PoseNet(nn.Module):
 
         x = self.conv1(x)
         x = self.bn1(x)
-        None
+        x = self.relu(x)
         None
 
         None
