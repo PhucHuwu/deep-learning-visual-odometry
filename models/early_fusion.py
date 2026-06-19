@@ -95,7 +95,7 @@ class PoseNet(nn.Module):
         x = torch.cat(x, dim=1)
 
         x = self.conv1(x)
-        None
+        x = self.bn1(x)
         None
         None
 
