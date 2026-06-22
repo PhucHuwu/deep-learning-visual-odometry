@@ -100,7 +100,7 @@ class PoseNet(nn.Module):
         x = self.maxpool(x)
 
         x = self.layer1(x)
-        None
+        x = self.layer2(x)
         None
         None
 
