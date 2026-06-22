@@ -102,7 +102,7 @@ class PoseNet(nn.Module):
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
-        None
+        x = self.layer4(x)
 
         None
 
