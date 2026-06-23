@@ -104,7 +104,7 @@ class PoseNet(nn.Module):
         x = self.layer3(x)
         x = self.layer4(x)
 
-        None
+        x = x.flatten(start_dim=1)
 
         None
         None
