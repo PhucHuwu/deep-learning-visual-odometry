@@ -66,7 +66,7 @@ class PoseNet(nn.Module):
         self.fc1 = nn.Linear(512 * 6 * 20, 512)
         self.fc2 = nn.Linear(512, 512)
         self.fc3_t = nn.Linear(512, 3)
-        None
+        self.fc3_r = nn.Linear(512, 3)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -112,11 +112,11 @@ class PoseNet(nn.Module):
         x = self.relu(x)
 
         x_t = self.fc3_t(x)
-        None
-        None
+        x_r = self.fc3_r(x)
+        x = torch.cat([x_r, x_t], dim=1)
 
-        None
-        None
+        axisangle = x[:, 0:3]
+        translation = x[:, 3:6]
         None
         None
 
