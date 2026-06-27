@@ -120,7 +120,7 @@ class PoseNet(nn.Module):
         axisangle = 0.001 * axisangle.view(-1, 3)
         translation = 0.001 * translation.view(-1, 3)
 
-        pass
+        return axisangle, translation
 
 
 def create_posenet_early():
