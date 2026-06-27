@@ -124,6 +124,6 @@ class PoseNet(nn.Module):
 
 
 def create_posenet_early():
-    None
+    model = PoseNet(BasicBlock, [2, 2, 2, 2])
 
-    pass
+    return model
