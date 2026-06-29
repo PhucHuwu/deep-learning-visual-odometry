@@ -91,7 +91,7 @@ class PoseNet(nn.Module):
     def forward(self, x):
         x = self.conv1(x)
         x = self.bn1(x)
-        None
+        x = self.relu(x)
         None
 
         None
