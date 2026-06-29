@@ -92,7 +92,7 @@ class PoseNet(nn.Module):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        None
+        x = self.maxpool(x)
 
         None
         None
