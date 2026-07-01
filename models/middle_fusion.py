@@ -56,7 +56,7 @@ class PoseNet(nn.Module):
         self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
         self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
 
-        None
+        self.fc1 = linearParallel(512 * 6 * 20, 256, 2)
         None
         None
         None
@@ -99,9 +99,9 @@ class PoseNet(nn.Module):
         x = self.layer3(x)
         x = self.layer4(x)
 
-        None
+        x = [_x.flatten(start_dim=1) for _x in x]
 
-        None
+        x = self.fc1(x)
         None
 
         None
