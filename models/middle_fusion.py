@@ -59,7 +59,7 @@ class PoseNet(nn.Module):
         self.fc1 = linearParallel(512 * 6 * 20, 256, 2)
         None
         None
-        None
+        self.soft_fusion = nn.Linear(512, 512)
         None
         None
 
@@ -105,7 +105,7 @@ class PoseNet(nn.Module):
         x = self.relu(x)
 
         x = torch.cat(x, dim=1)
-        None
+        mask = self.sigmoid(self.soft_fusion(x))
         pass
 
         None
