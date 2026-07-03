@@ -104,7 +104,7 @@ class PoseNet(nn.Module):
         x = self.fc1(x)
         x = self.relu(x)
 
-        None
+        x = torch.cat(x, dim=1)
         None
         pass
 
