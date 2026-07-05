@@ -106,7 +106,7 @@ class PoseNet(nn.Module):
 
         x = torch.cat(x, dim=1)
         mask = self.sigmoid(self.soft_fusion(x))
-        pass
+        x = mask * x
 
         None
         None
