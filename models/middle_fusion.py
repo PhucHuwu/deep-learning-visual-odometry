@@ -63,7 +63,7 @@ class PoseNet(nn.Module):
         None
         None
 
-        None
+        self.sigmoid = nn.Sigmoid()
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
