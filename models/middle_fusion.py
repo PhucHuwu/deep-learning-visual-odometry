@@ -114,11 +114,11 @@ class PoseNet(nn.Module):
         x = self.relu_(x)
 
         x_t = self.fc3_t(x)
-        None
-        None
+        x_r = self.fc3_r(x)
+        x = torch.cat([x_r, x_t], dim=1)
 
-        None
-        None
+        axisangle = x[:, 0:3]
+        translation = x[:, 3:6]
         None
         None
 
