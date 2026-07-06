@@ -58,10 +58,10 @@ class PoseNet(nn.Module):
 
         self.fc1 = linearParallel(512 * 6 * 20, 256, 2)
         self.fc2_1 = nn.Linear(512, 512)
-        None
+        self.fc2_2 = nn.Linear(512, 512)
         self.soft_fusion = nn.Linear(512, 512)
-        None
-        None
+        self.fc3_t = nn.Linear(512, 3)
+        self.fc3_r = nn.Linear(512, 3)
 
         self.sigmoid = nn.Sigmoid()
 
@@ -110,10 +110,10 @@ class PoseNet(nn.Module):
 
         x = self.fc2_1(x)
         x = self.relu_(x)
-        None
-        None
+        x = self.fc2_2(x)
+        x = self.relu_(x)
 
-        None
+        x_t = self.fc3_t(x)
         None
         None
 
