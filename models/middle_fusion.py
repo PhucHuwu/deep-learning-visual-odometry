@@ -57,7 +57,7 @@ class PoseNet(nn.Module):
         self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
 
         self.fc1 = linearParallel(512 * 6 * 20, 256, 2)
-        None
+        self.fc2_1 = nn.Linear(512, 512)
         None
         self.soft_fusion = nn.Linear(512, 512)
         None
@@ -108,8 +108,8 @@ class PoseNet(nn.Module):
         mask = self.sigmoid(self.soft_fusion(x))
         x = mask * x
 
-        None
-        None
+        x = self.fc2_1(x)
+        x = self.relu_(x)
         None
         None
 
