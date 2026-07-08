@@ -1,0 +1,124 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from .util import conv7x7Parallel, conv3x3Parallel, conv1x1Parallel, linearParallel
+from modules.CEN.semantic_segmentation.models.modules import BatchNorm2dParallel, ModuleParallel
+
+
+class BasicBlock(nn.Module):
+    expansion = 1
+    def __init__(self, inplanes, planes, num_parallel, stride=1, downsample=None):
+        super(BasicBlock, self).__init__()
+        self.conv1 = conv3x3Parallel(inplanes, planes, num_parallel, stride)
+        self.bn1 = BatchNorm2dParallel(planes, num_parallel)
+        self.relu = ModuleParallel(nn.ReLU(inplace=True))
+        self.conv2 = conv3x3Parallel(planes, planes, num_parallel)
+        self.bn2 = BatchNorm2dParallel(planes, num_parallel)
+
+        self.num_parallel = num_parallel
+        self.stride = stride
+        self.downsample = downsample
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out = [out[l] + residual[l] for l in range(self.num_parallel)]
+        out = self.relu(out)
+
+        return out
+
+
+class PoseNet(nn.Module):
+    def __init__(self, block, layers, num_parallel):
+        super(PoseNet, self).__init__()
+
+        self.inplanes = 64
+        self.num_parallel = num_parallel
+
+        self.conv1 = conv7x7Parallel(6, 64, 2, stride=2)
+
+        None
+        self.relu = ModuleParallel(nn.ReLU(inplace=True))
+        self.maxpool = ModuleParallel(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        self.layer1 = self._make_layer(block, 64, layers[0])
+        self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
+        self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
+        self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
+
+        None
+        None
+        None
+        None
+
+        None
+        None
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+            elif isinstance(m, nn.BatchNorm2d):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
+
+    def _make_layer(self, block, planes, num_blocks, stride=1):
+        downsample = None
+        if stride != 1 or self.inplanes != planes * block.expansion:
+            downsample = nn.Sequential(
+                conv1x1Parallel(self.inplanes, planes * block.expansion, 2, stride=stride),
+                BatchNorm2dParallel(planes * block.expansion, self.num_parallel)
+            )
+
+        layers = []
+        layers.append(block(self.inplanes, planes, self.num_parallel, stride, downsample))
+        self.inplanes = planes * block.expansion
+        for _ in range(1, num_blocks):
+            layers.append(block(self.inplanes, planes, self.num_parallel))
+
+        return nn.Sequential(*layers)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        None
+        None
+        None
+
+        None
+        None
+        None
+        None
+
+        None
+
+        None
+        None
+        None
+        None
+
+        None
+        None
+        None
+
+        None
+        None
+        None
+        None
+        None
+
+        pass
+
+
+def create_posenet_late(num_parallel=2):
+    None
+
+    pass
