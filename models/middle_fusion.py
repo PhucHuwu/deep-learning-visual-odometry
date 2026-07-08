@@ -126,6 +126,6 @@ class PoseNet(nn.Module):
 
 
 def create_posenet_middle(num_parallel=2):
-    None
+    model = PoseNet(BasicBlock, [2, 2, 2, 2], num_parallel)
 
-    pass
+    return model
