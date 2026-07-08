@@ -48,7 +48,7 @@ class PoseNet(nn.Module):
 
         self.conv1 = conv7x7Parallel(6, 64, 2, stride=2)
 
-        None
+        self.bn1 = BatchNorm2dParallel(64, num_parallel)
         self.relu = ModuleParallel(nn.ReLU(inplace=True))
         self.maxpool = ModuleParallel(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
         self.layer1 = self._make_layer(block, 64, layers[0])
@@ -89,7 +89,7 @@ class PoseNet(nn.Module):
 
     def forward(self, x):
         x = self.conv1(x)
-        None
+        x = self.bn1(x)
         None
         None
 
