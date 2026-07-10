@@ -101,7 +101,7 @@ class PoseNet(nn.Module):
         x = [_x.flatten(start_dim=1) for _x in x]
 
         x = self.fc1(x)
-        None
+        x = self.relu(x)
         None
         None
 
