@@ -61,8 +61,8 @@ class PoseNet(nn.Module):
         self.fc3_t = linearParallel(512, 3, 2)
         self.fc3_r = linearParallel(512, 3, 2)
 
-        None
-        None
+        self.alpha = nn.Parameter(torch.ones(num_parallel, requires_grad=True))
+        self.register_parameter('alpha', self.alpha)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -109,7 +109,7 @@ class PoseNet(nn.Module):
         x_r = self.fc3_r(x)
         x = [torch.cat([_x_r, _x_t], dim=1) for _x_r, _x_t in zip(x_r, x_t)]
 
-        None
+        alpha_soft = F.softmax(self.alpha)
         None
         None
         None
