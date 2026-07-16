@@ -113,7 +113,7 @@ class PoseNet(nn.Module):
         axisangle = alpha_soft[0] * x[0][:, 0:3] + alpha_soft[1] * x[1][:, 0:3]
         translation = alpha_soft[0] * x[0][:, 3:6] + alpha_soft[1] * x[1][:, 3:6]
         axisangle = 0.001 * axisangle.view(-1, 3)
-        None
+        translation = 0.001 * translation.view(-1, 3)
 
         pass
 
