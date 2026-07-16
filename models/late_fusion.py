@@ -112,7 +112,7 @@ class PoseNet(nn.Module):
         alpha_soft = F.softmax(self.alpha)
         axisangle = alpha_soft[0] * x[0][:, 0:3] + alpha_soft[1] * x[1][:, 0:3]
         translation = alpha_soft[0] * x[0][:, 3:6] + alpha_soft[1] * x[1][:, 3:6]
-        None
+        axisangle = 0.001 * axisangle.view(-1, 3)
         None
 
         pass
