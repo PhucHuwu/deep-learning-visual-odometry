@@ -11,8 +11,8 @@ def conv3x3(in_planes, out_planes, stride=1, bias=False):
 
 def conv1x1(in_planes, out_planes, stride=1, bias=False):
     "1x1 convolution"
-
-                                    None
+    return ModuleParallel(nn.Conv2d(in_planes, out_planes, kernel_size=1,
+                                    stride=stride, padding=0, bias=bias))
 
 
 class conv7x7Parallel(nn.Module):
