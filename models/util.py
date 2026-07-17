@@ -19,8 +19,8 @@ class conv7x7Parallel(nn.Module):
     def __init__(self, in_planes, out_planes, num_parallel, stride=1, bias=False):
         super(conv7x7Parallel, self).__init__()
         for i in range(num_parallel):
-
-                                                         None
+            setattr(self, 'conv7x7_' + str(i), nn.Conv2d(in_planes, out_planes, kernel_size=7,
+                                                         stride=stride, padding=3, bias=bias))
 
     def forward(self, x_parallel):
         None
