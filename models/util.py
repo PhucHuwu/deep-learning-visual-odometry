@@ -23,7 +23,7 @@ class conv7x7Parallel(nn.Module):
                                                          stride=stride, padding=3, bias=bias))
 
     def forward(self, x_parallel):
-        None
+        return [getattr(self, 'conv7x7_' + str(i))(x) for i, x in enumerate(x_parallel)]
 
 
 class conv3x3Parallel(nn.Module):
