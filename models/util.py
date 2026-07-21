@@ -42,9 +42,8 @@ class conv1x1Parallel(nn.Module):
         super(conv1x1Parallel, self).__init__()
         for i in range(num_parallel):
             setattr(self, 'conv1x1_' + str(i), nn.Conv2d(in_planes, out_planes, kernel_size=1,
-                                                         None
+                                                         stride=stride, padding=0, bias=bias))
 
-pass
     def forward(self, x_parallel):
         return [getattr(self, 'conv1x1_' + str(i))(x) for i, x in enumerate(x_parallel)]
 
