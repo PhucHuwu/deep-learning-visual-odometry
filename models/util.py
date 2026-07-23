@@ -52,7 +52,7 @@ class linearParallel(nn.Module):
     def __init__(self, in_features, out_features, num_parallel) -> None:
         super().__init__()
         for i in range(num_parallel):
-            None
+            setattr(self, 'linear_' + str(i), nn.Linear(in_features, out_features))
 
     def forward(self, x_parallel):
         None
