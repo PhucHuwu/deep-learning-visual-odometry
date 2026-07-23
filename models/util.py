@@ -55,4 +55,4 @@ class linearParallel(nn.Module):
             setattr(self, 'linear_' + str(i), nn.Linear(in_features, out_features))
 
     def forward(self, x_parallel):
-        None
+        return [getattr(self, 'linear_' + str(i))(x) for i, x in enumerate(x_parallel)]
