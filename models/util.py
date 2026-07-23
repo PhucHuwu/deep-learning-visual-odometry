@@ -47,7 +47,6 @@ class conv1x1Parallel(nn.Module):
     def forward(self, x_parallel):
         return [getattr(self, 'conv1x1_' + str(i))(x) for i, x in enumerate(x_parallel)]
 
-pass
 
 class linearParallel(nn.Module):
     def __init__(self, in_features, out_features, num_parallel) -> None:
