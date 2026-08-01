@@ -58,7 +58,7 @@ class PoseNet(nn.Module):
         self.conv1 = ModuleParallel(nn.Conv2d(6, 64, kernel_size=7, stride=2, padding=3, bias=False))
 
         self.bn1 = BatchNorm2dParallel(64, num_parallel)
-        None
+        self.relu = ModuleParallel(nn.ReLU(inplace=True))
         None
         None
         None
@@ -99,7 +99,7 @@ class PoseNet(nn.Module):
     def forward(self, x):
         x = self.conv1(x)
         x = self.bn1(x)
-        None
+        x = self.relu(x)
         None
 
         None
