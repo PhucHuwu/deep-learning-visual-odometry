@@ -60,10 +60,10 @@ class PoseNet(nn.Module):
         self.bn1 = BatchNorm2dParallel(64, num_parallel)
         self.relu = ModuleParallel(nn.ReLU(inplace=True))
         self.maxpool = ModuleParallel(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
-        None
-        None
-        None
-        None
+        self.layer1 = self._make_layer(block, 64, layers[0], bn_threshold)
+        self.layer2 = self._make_layer(block, 128, layers[1], bn_threshold, stride=2)
+        self.layer3 = self._make_layer(block, 256, layers[2], bn_threshold, stride=2)
+        self.layer4 = self._make_layer(block, 512, layers[3], bn_threshold, stride=2)
 
         None
         None
@@ -102,10 +102,10 @@ class PoseNet(nn.Module):
         x = self.relu(x)
         x = self.maxpool(x)
 
-        None
-        None
-        None
-        None
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
 
         None
 
