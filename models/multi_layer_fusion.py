@@ -59,7 +59,7 @@ class PoseNet(nn.Module):
 
         self.bn1 = BatchNorm2dParallel(64, num_parallel)
         self.relu = ModuleParallel(nn.ReLU(inplace=True))
-        None
+        self.maxpool = ModuleParallel(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
         None
         None
         None
@@ -100,7 +100,7 @@ class PoseNet(nn.Module):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        None
+        x = self.maxpool(x)
 
         None
         None
