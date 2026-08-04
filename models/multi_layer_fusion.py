@@ -21,7 +21,7 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
 
         self.exchange = Exchange()
-        pass
+        self.bn_threshold = bn_threshold
         None
         None
             None
