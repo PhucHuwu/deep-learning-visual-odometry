@@ -22,10 +22,10 @@ class BasicBlock(nn.Module):
 
         self.exchange = Exchange()
         self.bn_threshold = bn_threshold
-        None
-        None
-            None
-                None
+        self.bn2_list = []
+        for module in self.bn2.modules():
+            if isinstance(module, nn.BatchNorm2d):
+                self.bn2_list.append(module)
 
     def forward(self, x):
         residual = x
