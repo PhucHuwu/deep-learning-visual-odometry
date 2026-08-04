@@ -20,7 +20,7 @@ class BasicBlock(nn.Module):
         self.stride = stride
         self.downsample = downsample
 
-        None
+        self.exchange = Exchange()
         pass
         None
         None
