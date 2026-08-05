@@ -32,7 +32,7 @@ class BasicBlock(nn.Module):
 
         out = self.conv1(x)
         out = self.bn1(out)
-        None
+        out = self.relu(out)
 
         None
         None
