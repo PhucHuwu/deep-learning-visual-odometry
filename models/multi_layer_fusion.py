@@ -31,7 +31,7 @@ class BasicBlock(nn.Module):
         residual = x
 
         out = self.conv1(x)
-        None
+        out = self.bn1(out)
         None
 
         None
