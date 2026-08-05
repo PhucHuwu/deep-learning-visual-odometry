@@ -34,8 +34,8 @@ class BasicBlock(nn.Module):
         out = self.bn1(out)
         out = self.relu(out)
 
-        None
-        None
+        out = self.conv2(out)
+        out = self.bn2(out)
         None
             None
 
