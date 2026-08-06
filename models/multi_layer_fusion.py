@@ -42,7 +42,7 @@ class BasicBlock(nn.Module):
         if self.downsample is not None:
             residual = self.downsample(x)
 
-        None
+        out = [out[l] + residual[l] for l in range(self.num_parallel)]
         None
 
         pass
