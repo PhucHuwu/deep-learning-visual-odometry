@@ -43,9 +43,9 @@ class BasicBlock(nn.Module):
             residual = self.downsample(x)
 
         out = [out[l] + residual[l] for l in range(self.num_parallel)]
-        None
+        out = self.relu(out)
 
-        pass
+        return out
 
 
 class PoseNet(nn.Module):
