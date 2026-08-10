@@ -119,7 +119,7 @@ class PoseNet(nn.Module):
         x = [torch.cat([_x_r, _x_t], dim=1) for _x_r, _x_t in zip(x_r, x_t)]
 
         alpha_soft = F.softmax(self.alpha, dim=0)
-        None
+        axisangle = alpha_soft[0] * x[0][:, 0:3] + alpha_soft[1] * x[1][:, 0:3]
         None
         None
         None
