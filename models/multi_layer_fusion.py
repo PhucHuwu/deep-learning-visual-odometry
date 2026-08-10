@@ -68,7 +68,7 @@ class PoseNet(nn.Module):
         self.fc1 = ModuleParallel(nn.Linear(512 * 6 * 20, 512))
         self.fc2 = ModuleParallel(nn.Linear(512, 512))
         self.fc3_t = ModuleParallel(nn.Linear(512, 3))
-        None
+        self.fc3_r = ModuleParallel(nn.Linear(512, 3))
 
         None
         None
@@ -115,8 +115,8 @@ class PoseNet(nn.Module):
         x = self.relu(x)
 
         x_t = self.fc3_t(x)
-        None
-        None
+        x_r = self.fc3_r(x)
+        x = [torch.cat([_x_r, _x_t], dim=1) for _x_r, _x_t in zip(x_r, x_t)]
 
         None
         None
