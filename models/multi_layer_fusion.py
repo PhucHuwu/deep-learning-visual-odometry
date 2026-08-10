@@ -67,7 +67,7 @@ class PoseNet(nn.Module):
 
         self.fc1 = ModuleParallel(nn.Linear(512 * 6 * 20, 512))
         self.fc2 = ModuleParallel(nn.Linear(512, 512))
-        None
+        self.fc3_t = ModuleParallel(nn.Linear(512, 3))
         None
 
         None
@@ -114,7 +114,7 @@ class PoseNet(nn.Module):
         x = self.fc2(x)
         x = self.relu(x)
 
-        None
+        x_t = self.fc3_t(x)
         None
         None
 
