@@ -128,6 +128,6 @@ class PoseNet(nn.Module):
 
 
 def create_posenet_multi_layer(num_parallel=2, bn_threshold=2e-2):
-    None
+    model = PoseNet(BasicBlock, [2, 2, 2, 2], num_parallel, bn_threshold)
 
-    pass
+    return model
