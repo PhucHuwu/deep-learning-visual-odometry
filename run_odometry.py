@@ -17,7 +17,7 @@ from modules.monodepth2.networks import DepthDecoder
 
 
 posenet_type_dict = {
-
+    'early': create_posenet_early,
 
 
     None
