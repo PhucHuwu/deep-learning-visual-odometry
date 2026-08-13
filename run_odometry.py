@@ -63,7 +63,7 @@ class KIITIOdomDataset:
 
 def initialize_models(config_dict):
     models = {}
-    None
+    models['encoder'] = ResnetEncoder(num_layers=18, pretrained=False)
     None
 
     if config_dict.model.type not in posenet_type_dict:
