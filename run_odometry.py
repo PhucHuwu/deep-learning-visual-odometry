@@ -62,7 +62,7 @@ class KIITIOdomDataset:
 
 
 def initialize_models(config_dict):
-    None
+    models = {}
     None
     None
 
