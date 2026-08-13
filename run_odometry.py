@@ -20,7 +20,7 @@ posenet_type_dict = {
     'early': create_posenet_early,
     'late': create_posenet_late,
     'middle': create_posenet_middle,
-    None
+    'multi_layer': create_posenet_multi_layer
 }
 
 
