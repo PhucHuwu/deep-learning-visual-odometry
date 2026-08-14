@@ -67,7 +67,7 @@ def initialize_models(config_dict):
     models['depth'] = DepthDecoder(num_ch_enc=models['encoder'].num_ch_enc)
 
     if config_dict.model.type not in posenet_type_dict:
-        None
+        raise ValueError("{} is not a valid type of posenet".format(config_dict.model.type))
 
     None
 
