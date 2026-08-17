@@ -69,9 +69,9 @@ def initialize_models(config_dict):
     if config_dict.model.type not in posenet_type_dict:
         raise ValueError("{} is not a valid type of posenet".format(config_dict.model.type))
 
-    None
+    models['pose'] = posenet_type_dict[config_dict.model.type]()
 
-    None
+    state_dict = torch.load(Path(config_dict.model.path) / 'encoder.pth')
     None
     None
     None
