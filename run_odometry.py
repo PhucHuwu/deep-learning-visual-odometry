@@ -72,7 +72,7 @@ def initialize_models(config_dict):
     models['pose'] = posenet_type_dict[config_dict.model.type]()
 
     state_dict = torch.load(Path(config_dict.model.path) / 'encoder.pth')
-    None
+    models['encoder'].load_state_dict({k : v for k, v in state_dict.items() if k in models['encoder'].state_dict()})
     None
     None
 
