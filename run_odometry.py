@@ -74,7 +74,7 @@ def initialize_models(config_dict):
     state_dict = torch.load(Path(config_dict.model.path) / 'encoder.pth')
     models['encoder'].load_state_dict({k : v for k, v in state_dict.items() if k in models['encoder'].state_dict()})
     models['depth'].load_state_dict(torch.load(Path(config_dict.model.path) / 'depth.pth'))
-    None
+    models['pose'].load_state_dict(torch.load(Path(config_dict.model.path) / 'pose.pth'))
 
     None
     None
