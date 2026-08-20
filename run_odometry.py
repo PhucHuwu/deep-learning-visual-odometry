@@ -77,7 +77,7 @@ def initialize_models(config_dict):
     models['pose'].load_state_dict(torch.load(Path(config_dict.model.path) / 'pose.pth'))
 
     models['encoder'] = models['encoder'].cuda().eval()
-    None
+    models['depth'] = models['depth'].cuda().eval()
     None
 
     pass
