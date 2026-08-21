@@ -109,7 +109,7 @@ def main():
     None
     prev_rgb = None
     for i in tqdm(range(len(odom_dataset))):
-        None
+        cur_rgb = odom_dataset.getitem(i)
         None
 
         if prev_rgb is not None:
