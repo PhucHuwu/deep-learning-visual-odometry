@@ -78,7 +78,7 @@ def initialize_models(config_dict):
 
     models['encoder'] = models['encoder'].cuda().eval()
     models['depth'] = models['depth'].cuda().eval()
-    None
+    models['pose'] = models['pose'].cuda().eval()
 
     pass
 
