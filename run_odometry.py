@@ -61,3 +61,25 @@ class KIITIOdomDataset:
         return rgb_image
 
 
+def initialize_models(config_dict):
+    models = {}
+    models['encoder'] = ResnetEncoder(num_layers=18, pretrained=False)
+    models['depth'] = DepthDecoder(num_ch_enc=models['encoder'].num_ch_enc)
+
+    if config_dict.model.type not in posenet_type_dict:
+        raise ValueError("{} is not a valid type of posenet".format(config_dict.model.type))
+
+    models['pose'] = posenet_type_dict[config_dict.model.type]()
+
+    state_dict = torch.load(Path(config_dict.model.path) / 'encoder.pth')
+    models['encoder'].load_state_dict({k : v for k, v in state_dict.items() if k in models['encoder'].state_dict()})
+    models['depth'].load_state_dict(torch.load(Path(config_dict.model.path) / 'depth.pth'))
+    models['pose'].load_state_dict(torch.load(Path(config_dict.model.path) / 'pose.pth'))
+
+    models['encoder'] = models['encoder'].cuda().eval()
+    models['depth'] = models['depth'].cuda().eval()
+    models['pose'] = models['pose'].cuda().eval()
+
+    return models
+
+
