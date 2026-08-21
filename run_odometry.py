@@ -107,7 +107,7 @@ def main():
     None
 
     None
-    pass
+    prev_rgb = None
     for i in tqdm(range(len(odom_dataset))):
         None
         None
