@@ -80,7 +80,7 @@ def initialize_models(config_dict):
     models['depth'] = models['depth'].cuda().eval()
     models['pose'] = models['pose'].cuda().eval()
 
-    pass
+    return models
 
 
 def save_traj(file_path: str, pose_list: list) -> None:
