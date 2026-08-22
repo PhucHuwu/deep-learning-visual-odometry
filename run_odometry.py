@@ -113,7 +113,7 @@ def main():
         cur_disp = models['depth'](models['encoder'](cur_rgb))['disp', 0]
 
         if prev_rgb is not None:
-            None
+            rgb_inputs = torch.cat([prev_rgb, cur_rgb], dim=1)
             None
 
             with torch.no_grad():
