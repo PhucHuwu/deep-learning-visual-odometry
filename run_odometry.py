@@ -110,7 +110,7 @@ def main():
     prev_rgb = None
     for i in tqdm(range(len(odom_dataset))):
         cur_rgb = odom_dataset.getitem(i)
-        None
+        cur_disp = models['depth'](models['encoder'](cur_rgb))['disp', 0]
 
         if prev_rgb is not None:
             None
