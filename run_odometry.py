@@ -114,7 +114,7 @@ def main():
 
         if prev_rgb is not None:
             rgb_inputs = torch.cat([prev_rgb, cur_rgb], dim=1)
-            None
+            disp_inputs = torch.cat([prev_disp.repeat(1, 3, 1, 1), cur_disp.repeat(1, 3, 1, 1)], dim=1)
 
             with torch.no_grad():
                 None
