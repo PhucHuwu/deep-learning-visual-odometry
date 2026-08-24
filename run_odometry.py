@@ -121,7 +121,7 @@ def main():
                 None
                 None
 
-        pass
+        prev_rgb = cur_rgb
         pass
 
     None
