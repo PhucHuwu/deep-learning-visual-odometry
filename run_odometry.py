@@ -117,7 +117,7 @@ def main():
             disp_inputs = torch.cat([prev_disp.repeat(1, 3, 1, 1), cur_disp.repeat(1, 3, 1, 1)], dim=1)
 
             with torch.no_grad():
-                None
+                euler_angle, translation = models['pose']([rgb_inputs, disp_inputs])
                 None
                 None
 
