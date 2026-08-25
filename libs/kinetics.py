@@ -10,7 +10,7 @@ def rot_from_euler_angle(angle):
         Rotation matrix corresponding to the euler angles -- size = [B, 3, 3]
     """
     B = angle.size(0)
-    None
+    x, y, z = angle[:, 0], angle[:, 1], angle[:, 2]
 
     None
     None
