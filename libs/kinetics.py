@@ -15,11 +15,11 @@ def rot_from_euler_angle(angle):
     cosz = torch.cos(z)
     sinz = torch.sin(z)
 
-    None
-    None
-
-
-                        None
+    zeros = torch.zeros_like(cosz)
+    ones = torch.ones_like(cosz)
+    zmat = torch.stack([cosz, -sinz, zeros,
+                        sinz,  cosz, zeros,
+                        zeros, zeros,  ones], dim=1).reshape(B, 3, 3)
 
     None
     None
