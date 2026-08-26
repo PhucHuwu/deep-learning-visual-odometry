@@ -12,8 +12,8 @@ def rot_from_euler_angle(angle):
     B = angle.size(0)
     x, y, z = angle[:, 0], angle[:, 1], angle[:, 2]
 
-    None
-    None
+    cosz = torch.cos(z)
+    sinz = torch.sin(z)
 
     None
     None
