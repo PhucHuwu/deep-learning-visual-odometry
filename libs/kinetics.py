@@ -28,8 +28,8 @@ def rot_from_euler_angle(angle):
                         zeros,  ones, zeros,
                         -siny, zeros,  cosy], dim=1).reshape(B, 3, 3)
 
-    None
-    None
+    cosx = torch.cos(x)
+    sinx = torch.sin(x)
 
 
 
