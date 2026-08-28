@@ -35,7 +35,7 @@ def rot_from_euler_angle(angle):
                         zeros,  cosx, -sinx,
                         zeros,  sinx,  cosx], dim=1).reshape(B, 3, 3)
 
-    pass
+    rotMat = xmat @ ymat @ zmat
 
     None
     None
