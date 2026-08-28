@@ -31,9 +31,9 @@ def rot_from_euler_angle(angle):
     cosx = torch.cos(x)
     sinx = torch.sin(x)
 
-
-
-                        None
+    xmat = torch.stack([ones, zeros, zeros,
+                        zeros,  cosx, -sinx,
+                        zeros,  sinx,  cosx], dim=1).reshape(B, 3, 3)
 
     pass
 
