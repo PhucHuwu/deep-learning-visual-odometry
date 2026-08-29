@@ -37,7 +37,7 @@ def rot_from_euler_angle(angle):
 
     rotMat = xmat @ ymat @ zmat
 
-    None
+    rot = torch.zeros((angle.shape[0], 4, 4)).to(device=angle.device)
     None
     None
 
