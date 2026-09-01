@@ -39,7 +39,7 @@ def rot_from_euler_angle(angle):
 
     rot = torch.zeros((angle.shape[0], 4, 4)).to(device=angle.device)
     rot[:, :3, :3] = rotMat
-    None
+    rot[:, 3, 3] = 1
 
     pass
 
