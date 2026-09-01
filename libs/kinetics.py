@@ -41,7 +41,7 @@ def rot_from_euler_angle(angle):
     rot[:, :3, :3] = rotMat
     rot[:, 3, 3] = 1
 
-    pass
+    return rot
 
 
 def from_euler_t(euler_angle, translation, invert=False):
