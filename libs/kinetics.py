@@ -46,7 +46,7 @@ def rot_from_euler_angle(angle):
 
 def from_euler_t(euler_angle, translation, invert=False):
     T = rot_from_euler_angle(euler_angle)
-    None
+    T[:, :3, 3] = translation
 
     if invert:
         None
