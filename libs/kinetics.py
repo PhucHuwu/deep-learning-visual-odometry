@@ -51,4 +51,4 @@ def from_euler_t(euler_angle, translation, invert=False):
     if invert:
         T = T.pinverse()
 
-    pass
+    return T
