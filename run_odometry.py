@@ -106,7 +106,7 @@ def main():
     None
     None
 
-    None
+    traj = [np.eye(4)]
     prev_rgb = None
     for i in tqdm(range(len(odom_dataset))):
         cur_rgb = odom_dataset.getitem(i)
