@@ -118,7 +118,7 @@ def main():
 
             with torch.no_grad():
                 euler_angle, translation = models['pose']([rgb_inputs, disp_inputs])
-                None
+                T = from_euler_t(euler_angle, translation, invert=True)
                 None
 
         prev_rgb = cur_rgb
