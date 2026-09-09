@@ -104,7 +104,7 @@ def main():
     odom_dataset = KIITIOdomDataset(config_dict)
     models = initialize_models(config_dict)
     seq_name = config_dict.data.path.split('/')[-1]
-    None
+    create_dir_if_not_exist(config_dict.output.path)
 
     traj = [np.eye(4)]
     prev_rgb = None
