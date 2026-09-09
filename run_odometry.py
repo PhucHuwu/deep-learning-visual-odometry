@@ -119,7 +119,7 @@ def main():
             with torch.no_grad():
                 euler_angle, translation = models['pose']([rgb_inputs, disp_inputs])
                 T = from_euler_t(euler_angle, translation, invert=True)
-                None
+                traj.append(np.dot(traj[-1], T.cpu().numpy()[0]))
 
         prev_rgb = cur_rgb
         prev_disp = cur_disp
