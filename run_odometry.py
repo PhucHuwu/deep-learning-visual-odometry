@@ -103,7 +103,7 @@ def main():
 
     odom_dataset = KIITIOdomDataset(config_dict)
     models = initialize_models(config_dict)
-    None
+    seq_name = config_dict.data.path.split('/')[-1]
     None
 
     traj = [np.eye(4)]
