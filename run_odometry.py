@@ -124,7 +124,7 @@ def main():
         prev_rgb = cur_rgb
         prev_disp = cur_disp
 
-    None
+    save_traj(os.path.join(config_dict.output.path, '{}.txt'.format(seq_name)), traj)
 
 if __name__ == '__main__':
     main()
