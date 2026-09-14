@@ -84,7 +84,7 @@ def initialize_models(config_dict):
 
 
 def save_traj(file_path: str, pose_list: list) -> None:
-    None
+    pose_list = [p[0:3, 0:4].reshape((12,)) for p in pose_list]
 
     with open(file_path, 'w') as f:
         None
