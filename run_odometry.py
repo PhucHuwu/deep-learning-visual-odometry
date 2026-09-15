@@ -83,3 +83,12 @@ def initialize_models(config_dict):
     return models
 
 
+def save_traj(file_path: str, pose_list: list) -> None:
+    pose_list = [p[0:3, 0:4].reshape((12,)) for p in pose_list]
+
+    with open(file_path, 'w') as f:
+        np.savetxt(f, pose_list, delimiter=' ')
+
+    print('Trajectory saved to {}.'.format(file_path))
+
+
