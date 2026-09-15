@@ -89,7 +89,7 @@ def save_traj(file_path: str, pose_list: list) -> None:
     with open(file_path, 'w') as f:
         np.savetxt(f, pose_list, delimiter=' ')
 
-    None
+    print('Trajectory saved to {}.'.format(file_path))
 
 
 def main():
