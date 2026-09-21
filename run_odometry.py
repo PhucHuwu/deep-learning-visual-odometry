@@ -92,3 +92,39 @@ def save_traj(file_path: str, pose_list: list) -> None:
     print('Trajectory saved to {}.'.format(file_path))
 
 
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--config', type=Path, default='configs/run_odometry.yaml')
+    args = parser.parse_args()
+
+    with open(args.config, 'r') as f:
+        config_dict = yaml.load(f, yaml.FullLoader)
+        config_dict = edict(config_dict)
+
+    odom_dataset = KIITIOdomDataset(config_dict)
+    models = initialize_models(config_dict)
+    seq_name = config_dict.data.path.split('/')[-1]
+    create_dir_if_not_exist(config_dict.output.path)
+
+    traj = [np.eye(4)]
+    prev_rgb = None
+    for i in tqdm(range(len(odom_dataset))):
+        cur_rgb = odom_dataset.getitem(i)
+        cur_disp = models['depth'](models['encoder'](cur_rgb))['disp', 0]
+
+        if prev_rgb is not None:
+            rgb_inputs = torch.cat([prev_rgb, cur_rgb], dim=1)
+            disp_inputs = torch.cat([prev_disp.repeat(1, 3, 1, 1), cur_disp.repeat(1, 3, 1, 1)], dim=1)
+
+            with torch.no_grad():
+                euler_angle, translation = models['pose']([rgb_inputs, disp_inputs])
+                T = from_euler_t(euler_angle, translation, invert=True)
+                traj.append(np.dot(traj[-1], T.cpu().numpy()[0]))
+
+        prev_rgb = cur_rgb
+        prev_disp = cur_disp
+
+    save_traj(os.path.join(config_dict.output.path, '{}.txt'.format(seq_name)), traj)
+
+if __name__ == '__main__':
+    main()
